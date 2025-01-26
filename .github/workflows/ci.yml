@@ -19,6 +19,6 @@ jobs:
                pip install -r requirements.txt
 
             - name: Executar o teste
-              run: pytest teste_api.py
+              run: pytest
     
 
