@@ -16,5 +16,6 @@ def obter_titulo_por_ano(ano):
     # if titulo.get('ano') == ano → Só adiciona à nova lista se o ano for igual ao buscado.
     if titulos_encontrados:
         return jsonify(titulos_encontrados) 
-        
+    else:
+        return jsonify([])  # Retorna uma lista vazia quando não encontrar nenhum título    
 # app.run(port=5000,host='localhost',debug=True)
