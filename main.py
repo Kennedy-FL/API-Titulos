@@ -19,4 +19,5 @@ def obter_titulo_por_ano(ano):
     else:
         return jsonify([])  # Retorna uma lista vazia quando não encontrar nenhum título    
 
-app.run(port=5000,host='localhost')
+if __name__ == '__main__':
+    app.run(port=5000,host='localhost',debug=True)
