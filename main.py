@@ -17,4 +17,4 @@ def obter_titulo_por_ano(ano):
     if titulos_encontrados:
         return jsonify(titulos_encontrados) 
         
-app.run(port=5000,host='localhost',debug=True)
+# app.run(port=5000,host='localhost',debug=True)
