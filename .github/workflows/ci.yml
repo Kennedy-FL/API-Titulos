@@ -17,6 +17,7 @@ jobs:
             - name: Instalar as dependências
               run: |
                pip install pytest 
+               pip install flask
 
             - name: Executar o teste
               run: pytest teste_api.py
