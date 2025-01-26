@@ -16,9 +16,9 @@ jobs:
 
             - name: Instalar as dependências
               run: |
-               pip install pytest
+               pip install pytest 
 
             - name: Executar o teste
-              run: pytest 
+              run: pytest teste_api.py
     
 
