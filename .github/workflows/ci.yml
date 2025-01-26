@@ -1,0 +1,24 @@
+name: CI da API
+
+on: [push]
+
+jobs:
+    teste:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clonar o repositório
+              uses: actions/checkout@v3
+
+            - name: Configurar o Python
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.10.12'
+
+            - name: Instalar as dependências
+              run: |
+               pip install pytest
+
+            - name: Executar o teste
+              run: pytest 
+    
+

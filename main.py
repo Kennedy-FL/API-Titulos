@@ -12,6 +12,8 @@ def obter_titulos():
 @app.route('/Titulos/<int:ano>',methods=['GET'])
 def obter_titulo_por_ano(ano):
     titulos_encontrados = [titulo for titulo in Titulos if titulo.get('ano') == ano]
+    # titulo for titulo in Titulos → Para cada item na lista Titulos, pegue o titulo.
+    # if titulo.get('ano') == ano → Só adiciona à nova lista se o ano for igual ao buscado.
     if titulos_encontrados:
         return jsonify(titulos_encontrados) 
         
