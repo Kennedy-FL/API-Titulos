@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from bd import Titulos
+from api_titulos.bd import Titulos
 
 app = Flask(__name__)
 
