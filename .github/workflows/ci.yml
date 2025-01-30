@@ -1,6 +1,11 @@
 name: CI da API
 
-on: [push]
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
 
 jobs:
     teste:
@@ -16,9 +21,9 @@ jobs:
 
             - name: Instalar as dependências
               run: |
-               python -m pip install --upgrade pip
                pip install -r requirements.txt
-               
+               pip install pytest
+
             - name: Executar o teste
               run: pytest
     
