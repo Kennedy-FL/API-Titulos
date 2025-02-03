@@ -25,5 +25,31 @@ jobs:
 
             - name: Executar o teste
               run: pytest
-    
+    deploy:
+      runs-on: ubuntu-latest 
+      needs: teste
+      environment: 
+        name: dev
+        url: http://api-titulos.com
 
+      steps:
+        - name: Clonar o repositório
+          uses: actions/checkout@v3
+        
+        - name: Configurar acesso SSH
+          run: |
+            mkdir -p ~/.ssh
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+            chmod 600 ~/.ssh/id_rsa
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
+            chmod 644 ~/.ssh/known_hosts
+          
+        - name: Deploy para a EC2
+          run: |
+            ssh ubuntu@18.223.64.246
+            cd ~/API-Titulos
+            git pull origin main
+            source venv/bin/activate
+            pip install -r requirements.txt
+            sudo systemctl restart flask
+            
