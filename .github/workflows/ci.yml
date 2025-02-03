@@ -46,10 +46,10 @@ jobs:
           
         - name: Deploy para a EC2
           run: |
-            ssh ubuntu@18.223.64.246 && yes
+            ssh -o StrictHostKeyChecking=no ubuntu@18.223.64.246 << 'EOF' 
             cd ~/API-Titulos
             git pull origin main
             source venv/bin/activate
             pip install -r requirements.txt
             sudo systemctl restart flask
-            
+            EOF
