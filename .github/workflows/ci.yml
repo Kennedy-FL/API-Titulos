@@ -31,11 +31,12 @@ jobs:
                 mkdir -p artifact
                 pytest > artifact/test_results.log
       
-            - name: Fazer upload do artefato
-              uses: actions/upload-artifact@v3
-              with:
-                name: test-results-artifact
-                path: artifact/test_results.log
+            # - name: Fazer upload do artefato
+            #   uses: actions/upload-artifact@v3
+            #   with:
+            #     name: test-results-artifact
+            #     path: artifact/test_results.log
+                
     deploy:
       runs-on: ubuntu-latest 
       needs: teste
