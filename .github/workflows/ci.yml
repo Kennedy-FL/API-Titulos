@@ -32,7 +32,7 @@ jobs:
                 pytest > artifact/test_results.log
       
             - name: Fazer upload do artefato
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: test-results-artifact
                   path: artifact/test_results.log
